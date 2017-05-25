@@ -6,12 +6,12 @@
 
 # 特征
 
-## 用户的特征
+>> 用户的特征
 1. Meta信息：platform, nation, modelname, language等（参考：https://docs.google.com/spreadsheets/d/1fX47hAek9Jouwr0hjiWfBhuymliuQ-7a_IU9KnllBUA/edit#gid=1997403991）
 2. 用户历史query：比如取最近1000个query。
 3. 用户发送过的sticker：比如最近10个。
 4. 用户当前输入query：比如最近的一句话。
-## sticker的特征
+>> sticker的特征
 5. sticker的图片
 6. sticker的tag
 
