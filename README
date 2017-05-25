@@ -1,0 +1,39 @@
+# popup 项目，根据用户的数据，在用户输入文本的时候给用户推荐合适的sticker。
+
+# 思路
+计算当前用户，和候选sticker的匹配度。
+训练数据选取：用户输入一些query后，手工选择了一些sticker当做训练正例。随机选取一些sticker当做训练训练负例。
+
+# 特征
+
+## 用户的特征
+1. Meta信息：platform, nation, modelname, language等（参考：https://docs.google.com/spreadsheets/d/1fX47hAek9Jouwr0hjiWfBhuymliuQ-7a_IU9KnllBUA/edit#gid=1997403991）
+2. 用户历史query：比如取最近1000个query。
+3. 用户发送过的sticker：比如最近10个。
+4. 用户当前输入query：比如最近的一句话。
+## sticker的特征
+5. sticker的图片
+6. sticker的tag
+
+上面6类特征，如果该用户点了该sticker，label=1; 如果没点，label=0。
+
+## 怎么使用特征
+把所有特征转化为向量，然后做卷积。
+1. 用户Meta信息，是离散特征，可以做成one-hot的向量。
+2. Query特征，是文本特征，可以通过词向量转成矩阵。
+3. Sticker图片特征，直接转成矩阵。
+
+## 网络结构
+1. Meta特征，本身是one-hot的向量，不需要做网络结构。
+2. Query/tag特征，转成为矩阵后，做一层卷积，卷积核filter_list=[1,2,3,4],num_filter=60, 然后做max-pooling,最后变成4*60的向量。
+3. 图片特征，转化为矩阵后，做两层卷积，然后接2层全连接。（注：网络结构可以调整）
+4. 上面6类特征，分别转化为向量，然后拼在一起，后面加全连接，
+
+## TODO:
+1. 代码：
+目前代码实现了2个特征，一个是query网络，一个是图片网络，并且使用测试数据已经跑通。后面只需要参考query网络和图片网络，补全6个特征的网络。备注：图片网络使用的是文本的测试数据，因此不需要embedding层，
+2. 数据：
+数据还没开始弄，需要从头整理训练数据。上面代码中用的试验数据是自己构造的假数据。
+
+# 相关文档：
+一些数据调研：https://docs.google.com/spreadsheets/d/1YF3wiTEr1_n1FVEnsxgF6iUhvDVMaKskvNjx0C4EeTg/edit#gid=0

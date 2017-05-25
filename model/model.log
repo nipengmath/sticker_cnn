@@ -1,0 +1,4 @@
+Iter [0] Train: Time: 7.784s, Training Accuracy: 46.484
+--- Dev Accuracy thus far: 50.781
+--- Dev Category 0 P=1,R=0,F=0
+--- Dev Category 1 P=0.5078125,R=1.0,F=0.673575129534

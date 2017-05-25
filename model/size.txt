@@ -1,0 +1,1 @@
+{"vocab_size": 233, "location_vec": "w2v.m", "dropout": 0.5, "batch_size": 128, "num_filter": 60, "sentence_size": 25, "vec_size": 256, "filter_list": [1, 2, 3, 4], "epoch_num": 5, "num_label": 2}
