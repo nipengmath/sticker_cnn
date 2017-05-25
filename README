@@ -36,5 +36,11 @@
 2. 数据：
 数据还没开始弄，需要从头整理训练数据。上面代码中用的试验数据是自己构造的假数据。
 
+## 代码结构介绍：
+1. 总训练入口： python process_fit.py
+2. cnn网络结构定义：text_cnn.py
+3. cnn训练：text_cnn_fit.py
+4. 预测：process_score.py
+
 # 相关文档：
 一些数据调研：https://docs.google.com/spreadsheets/d/1YF3wiTEr1_n1FVEnsxgF6iUhvDVMaKskvNjx0C4EeTg/edit#gid=0
